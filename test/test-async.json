@@ -1,0 +1,244 @@
+{
+  "id": 7,
+  "name": "typedoc-theme-reference-declaration",
+  "variant": "project",
+  "kind": 1,
+  "flags": {},
+  "children": [
+    {
+      "id": 8,
+      "name": "commentSDK",
+      "variant": "declaration",
+      "kind": 64,
+      "flags": {},
+      "sources": [
+        {
+          "fileName": "index.ts",
+          "line": 5,
+          "character": 22
+        }
+      ],
+      "signatures": [
+        {
+          "id": 9,
+          "name": "commentSDK",
+          "variant": "signature",
+          "kind": 4096,
+          "flags": {},
+          "comment": {
+            "summary": [
+              {
+                "kind": "text",
+                "text": "설명합니다"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "fileName": "index.ts",
+              "line": 5,
+              "character": 0
+            }
+          ],
+          "parameters": [
+            {
+              "id": 10,
+              "name": "injected",
+              "variant": "param",
+              "kind": 32768,
+              "flags": {},
+              "type": {
+                "type": "intrinsic",
+                "name": "number"
+              }
+            }
+          ],
+          "type": {
+            "type": "reference",
+            "target": {
+              "sourceFileName": "node_modules/typescript/lib/lib.es5.d.ts",
+              "qualifiedName": "Promise"
+            },
+            "typeArguments": [
+              {
+                "type": "reflection",
+                "declaration": {
+                  "id": 11,
+                  "name": "__type",
+                  "variant": "declaration",
+                  "kind": 65536,
+                  "flags": {},
+                  "children": [
+                    {
+                      "id": 12,
+                      "name": "isLogin",
+                      "variant": "declaration",
+                      "kind": 2048,
+                      "flags": {},
+                      "sources": [
+                        {
+                          "fileName": "index.ts",
+                          "line": 14,
+                          "character": 8
+                        }
+                      ],
+                      "signatures": [
+                        {
+                          "id": 13,
+                          "name": "isLogin",
+                          "variant": "signature",
+                          "kind": 4096,
+                          "flags": {},
+                          "comment": {
+                            "summary": [
+                              {
+                                "kind": "text",
+                                "text": "로그인된 사용자인지 확인\n인증정보가 제대로 주입되었는지 여부를 판단하기 위해 사용하는 것이며,\n사용자 정보를 활용하기 위해서는 각 화면에 맞는 getHome()을 호출 필요."
+                              }
+                            ]
+                          },
+                          "sources": [
+                            {
+                              "fileName": "index.ts",
+                              "line": 14,
+                              "character": 8
+                            }
+                          ],
+                          "type": {
+                            "type": "intrinsic",
+                            "name": "boolean"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "groups": [
+                    {
+                      "title": "Methods",
+                      "children": [12]
+                    }
+                  ],
+                  "sources": [
+                    {
+                      "fileName": "index.ts",
+                      "line": 8,
+                      "character": 11
+                    }
+                  ]
+                }
+              }
+            ],
+            "name": "Promise",
+            "package": "typescript",
+            "externalUrl": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+          }
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "title": "Functions",
+      "children": [8],
+      "categories": [
+        {
+          "title": "SDK가이드 Use",
+          "children": [8]
+        }
+      ]
+    }
+  ],
+  "packageName": "typedoc-theme-reference-declaration",
+  "readme": [
+    {
+      "kind": "text",
+      "text": "# typedoc-theme-reference-declaration\n\nAutomatically document symbols which aren't exported but are referenced.\n\n> Supports TypeDoc 0.24.x\n\nTypeDoc 0.20 switched from documenting each file individually to documenting based on entry points. TypeDoc looks at each provided entry point and documents all exports from that entry point.\n\nFor libraries which export their full exposed API, this works well, but some packages are extremely resistant to exporting everything. This plugin is for them. After TypeDoc has finished converting packages, it will look for types which are referenced, but not exported, and place them into an internal module for that entry point (called "
+    },
+    {
+      "kind": "code",
+      "text": "`<internal>`"
+    },
+    {
+      "kind": "text",
+      "text": " by default).\n\nIf your project references classes which are built into the language (e.g. "
+    },
+    {
+      "kind": "code",
+      "text": "`HTMLElement`"
+    },
+    {
+      "kind": "text",
+      "text": "), this package _will_ result in those types being documented to. If you want to prevent this, set TypeDoc's "
+    },
+    {
+      "kind": "code",
+      "text": "`excludeExternals`"
+    },
+    {
+      "kind": "text",
+      "text": " option to "
+    },
+    {
+      "kind": "code",
+      "text": "`true`"
+    },
+    {
+      "kind": "text",
+      "text": ". The default pattern for determining if a symbol is external will exclude everything within "
+    },
+    {
+      "kind": "code",
+      "text": "`node_modules`"
+    },
+    {
+      "kind": "text",
+      "text": ".\n\n### Usage\n\n"
+    },
+    {
+      "kind": "code",
+      "text": "```bash\nnpm install typedoc-theme-reference-declaration\nnpx typedoc --plugin typedoc-theme-reference-declaration\n```"
+    },
+    {
+      "kind": "text",
+      "text": "\n\n### Options\n\n- "
+    },
+    {
+      "kind": "code",
+      "text": "`internalModule`"
+    },
+    {
+      "kind": "text",
+      "text": " - Define the name of the module that internal symbols which are not exported should be placed into.\n\n### Additional Reading\n\n- https://github.com/TypeStrong/typedoc/issues/1657"
+    }
+  ],
+  "symbolIdMap": {
+    "7": {
+      "sourceFileName": "test/packages/function-test-async/index.ts",
+      "qualifiedName": ""
+    },
+    "8": {
+      "sourceFileName": "test/packages/function-test-async/index.ts",
+      "qualifiedName": "commentSDK"
+    },
+    "9": {
+      "sourceFileName": "test/packages/function-test-async/index.ts",
+      "qualifiedName": "commentSDK"
+    },
+    "10": {
+      "sourceFileName": "test/packages/function-test-async/index.ts",
+      "qualifiedName": "injected"
+    },
+    "11": {
+      "sourceFileName": "test/packages/function-test-async/index.ts",
+      "qualifiedName": "__object"
+    },
+    "12": {
+      "sourceFileName": "test/packages/function-test-async/index.ts",
+      "qualifiedName": "__object.isLogin"
+    },
+    "13": {
+      "sourceFileName": "test/packages/function-test-async/index.ts",
+      "qualifiedName": "__object.isLogin"
+    }
+  }
+}
